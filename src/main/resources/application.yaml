@@ -1,0 +1,35 @@
+spring:
+
+  mvc:
+    async:
+      request-timeout: 99000
+#  jpa:
+#    database: POSTGRESQL
+#    show-sql: true
+#    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dbtest
+    username: dbuser
+    password: dbpass
+    driverClassName: org.postgresql.Driver
+
+  application:
+    name: Globox-Test
+
+server:
+  tomcat:
+    connection-timeout: 600s
+    max-swallow-size: 1552428800 # 50 MB in bytes, controls the maximum size of the response payload
+  jetty:
+    output-buffer-size: 65536
+    response-header-size: 65536
+    connection-timeout: 600s
+    max-swallow-size: 1552428800 # 50 MB in bytes, controls the maximum size of the response payload
+    max-http-response-header-size: 1552428800
+    threads:
+      idle-timeout: 600000000
